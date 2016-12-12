@@ -25,5 +25,15 @@ namespace SchoolFinder
         /// 학교의 고유코드를 제공합니다.
         /// </summary>
         public string Code { get; set; }
+
+        /// <summary>
+        /// 학교의 관할지역을 제공합니다.
+        /// </summary>
+        public Regions Region { get; set; }
+
+        /// <summary>
+        /// 학교의 종류를 제공합니다.
+        /// </summary>
+        public SchoolTypes SchoolType { get; set; }
     }
 }
