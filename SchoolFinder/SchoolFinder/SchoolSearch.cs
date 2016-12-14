@@ -21,14 +21,14 @@ namespace SchoolFinder
         /// <returns>검색결과</returns>
         public List<SchoolInfo> SearchSchool(SchoolTypes type, Regions region, string searchWord)
         {
-            // TODO: 커리어넷 API로 가져온 학교이름과 주소를 SchoolInfo에 저장하고 
-            // 같은 검색단어로 나이스에서 학교코드를 가져온 뒤 이미 저장되어 있는 학교이름과 대조해서 맞는 학교코드들 저장하기
-            var result = new FindSchoolCode().SearchSchoolCode(Regions.Gyeonggi, "세종");
-            var infos = new List<SchoolInfo>();
-            foreach (var item in result)
+            var infos = new FindSchool().SearchSchoolInfo(type, region, searchWord);
+            var codes = new FindSchoolCode().SearchSchoolCode(region, searchWord);
+
+            foreach (var item in infos)
             {
-                infos.Add(new SchoolInfo { Name = item.Name, Code = item.Code, Region = region });
+                item.Code = codes.Find(x => x.Name == item.Name).Code;
             }
+            infos.RemoveAll(x => x.Code == null);
 
             return infos;
         }
@@ -39,10 +39,6 @@ namespace SchoolFinder
     /// </summary>
     public enum SchoolTypes
     {
-        /// <summary>
-        /// 병설유치원
-        /// </summary>
-        Kindergarden,
         /// <summary>
         /// 초등학교
         /// </summary>

@@ -12,10 +12,10 @@ namespace SchoolFinder
     {
         public static string GetJsonFromUrl(string url)
         {
-            Uri uri = new Uri(url);
             string result = null;
 
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
+            Uri uri = new Uri(url);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
             if (response.StatusCode == HttpStatusCode.OK)

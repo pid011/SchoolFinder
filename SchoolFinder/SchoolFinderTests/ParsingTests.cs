@@ -13,12 +13,12 @@ namespace SchoolFinderTests
         public void SchoolCodeParsingTestAsync()
         {
             SchoolSearch finder = new SchoolSearch();
-            var result = finder.SearchSchool(SchoolTypes.Middle, Regions.Gyeonggi, "¼¼Á¾");
-            var infos = result;
+            var result = finder.SearchSchool(SchoolTypes.Middle, Regions.Gyeonggi, "¼¼");
 
-            foreach (var item in infos)
+            foreach (var item in result)
             {
                 Debug.WriteLine("Name: " + item.Name);
+                Debug.WriteLine("Adress: " + item.Adress);
                 Debug.WriteLine("Code: " + item.Code);
                 Debug.WriteLine("----------------------------------");
             }
