@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>SchoolFinder</id>
+    <version>$version$</version>
+    <title>SchoolFinder</title>
+    <authors>Sepi</authors>
+    <licenseUrl>https://github.com/pid011/SchoolFinder/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/pid011/SchoolFinder</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>검색어로 대한민국의 학교를 검색한뒤 결과를 제공합니다.</description>
+    <releaseNotes>Hello</releaseNotes>
+    <copyright>Copyright Sepi 2016</copyright>
+    <tags>Korea School Search</tags>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="9.0.1" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\SchoolFinder.*" target="lib\net46" />
+  </files>
+</package>
