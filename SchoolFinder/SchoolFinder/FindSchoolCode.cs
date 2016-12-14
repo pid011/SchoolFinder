@@ -4,34 +4,35 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Net;
+using System.IO;
 
 namespace SchoolFinder
 {
     internal class FindSchoolCode
     {
-        public async List<SchoolCodeInfo> SearchSchoolCodeAsync(Regions region, string searchWord)
+        public List<SchoolCodeInfo> SearchSchoolCode(Regions region, string searchWord)
         {
             string url = RegionsToUrl(region) + searchWord;
-            string json = await GetSchoolCodeSearchResultStringAsync(url);
-            // TODO: 파싱 함수 작성
-        }
-
-        private async Task<string> GetSchoolCodeSearchResultStringAsync(string url)
-        {
-            string result;
-            using (HttpClient client = new HttpClient())
-            {
-                try
-                {
-                    result = await client.GetStringAsync(url);
-                }
-                catch (HttpRequestException ex)
-                {
-                    throw new HttpRequestException(ex.Message);
-                }
-            }
+            string json = Util.GetJsonFromUrl(url);
+            var result = SchoolCodeJsonParser(json);
 
             return result;
+        }
+
+        private List<SchoolCodeInfo> SchoolCodeJsonParser(string json)
+        {
+            JObject obj = JObject.Parse(json);
+            JArray arr = (JArray)obj["resultSVO"]["data"]["orgDVOList"];
+            List<SchoolCodeInfo> codes = arr.Select(p => new SchoolCodeInfo
+            {
+                Name = (string)p["kraOrgNm"],
+                Code = (string)p["orgCode"]
+            }).ToList();
+
+            return codes;
         }
 
         private string RegionsToUrl(Regions region)

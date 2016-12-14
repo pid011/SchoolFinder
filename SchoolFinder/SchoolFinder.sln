@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.25928.0
+VisualStudioVersion = 15.0.26009.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolFinder", "SchoolFinder\SchoolFinder.csproj", "{96573EFB-F0E3-4F97-8A9B-679BE926C12D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolFinderTests", "SchoolFinderTests\SchoolFinderTests.csproj", "{5CCD2731-E01B-42C4-8573-CD8AF71F08BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{96573EFB-F0E3-4F97-8A9B-679BE926C12D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96573EFB-F0E3-4F97-8A9B-679BE926C12D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96573EFB-F0E3-4F97-8A9B-679BE926C12D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CCD2731-E01B-42C4-8573-CD8AF71F08BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CCD2731-E01B-42C4-8573-CD8AF71F08BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CCD2731-E01B-42C4-8573-CD8AF71F08BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CCD2731-E01B-42C4-8573-CD8AF71F08BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

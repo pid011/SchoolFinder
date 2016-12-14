@@ -10,7 +10,7 @@ namespace SchoolFinder
     /// <summary>
     /// 학교검색을 위한 함수와 그 결과로 나오는 속성을 제공합니다.
     /// </summary>
-    public class SchoolFinder
+    public class SchoolSearch
     {
         /// <summary>
         /// 매개변수로 받은 검색단어로 학교를 검색하여 검색어와 유사한 학교들을 리턴합니다.
@@ -19,11 +19,18 @@ namespace SchoolFinder
         /// <param name="region">검색할 학교의 관할지역</param>
         /// <param name="searchWord"></param>
         /// <returns>검색결과</returns>
-        public async List<SchoolInfo> SearchSchoolAsync(SchoolTypes type, Regions region, string searchWord)
+        public List<SchoolInfo> SearchSchool(SchoolTypes type, Regions region, string searchWord)
         {
-            // TODO: NewtonsoftJson 설치
             // TODO: 커리어넷 API로 가져온 학교이름과 주소를 SchoolInfo에 저장하고 
             // 같은 검색단어로 나이스에서 학교코드를 가져온 뒤 이미 저장되어 있는 학교이름과 대조해서 맞는 학교코드들 저장하기
+            var result = new FindSchoolCode().SearchSchoolCode(Regions.Gyeonggi, "세종");
+            var infos = new List<SchoolInfo>();
+            foreach (var item in result)
+            {
+                infos.Add(new SchoolInfo { Name = item.Name, Code = item.Code, Region = region });
+            }
+
+            return infos;
         }
     }
 
