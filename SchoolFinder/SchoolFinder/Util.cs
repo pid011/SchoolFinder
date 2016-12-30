@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace SchoolFinder
 {
+    [Serializable]
     internal class Util
     {
         public static string GetJsonFromUrl(string url)

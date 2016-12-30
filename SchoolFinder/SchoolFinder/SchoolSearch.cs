@@ -10,6 +10,7 @@ namespace SchoolFinder
     /// <summary>
     /// 학교검색을 위한 함수와 그 결과로 나오는 속성을 제공합니다.
     /// </summary>
+    [Serializable]
     public class SchoolSearch
     {
         /// <summary>
