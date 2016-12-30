@@ -7,6 +7,7 @@ using Newtonsoft.Json.Linq;
 
 namespace SchoolFinder
 {
+    [Serializable]
     internal class FindSchool
     {
         // [ NOTICE ] apiKey는 SchoolFinder만의 API 키입니다. 부디 다른 용도로 사용하지 말아주세요. ㅠㅠ

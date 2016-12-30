@@ -11,6 +11,7 @@ using System.IO;
 
 namespace SchoolFinder
 {
+    [Serializable]
     internal class FindSchoolCode
     {
         public List<SchoolCodeInfo> SearchSchoolCode(Regions region, string searchWord)
