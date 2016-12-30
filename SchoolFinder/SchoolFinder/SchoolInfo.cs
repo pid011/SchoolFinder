@@ -9,6 +9,7 @@ namespace SchoolFinder
     /// <summary>
     /// 학교 정보에 대한 속성들을 제공합니다.
     /// </summary>
+    [Serializable]
     public class SchoolInfo
     {
         /// <summary>
