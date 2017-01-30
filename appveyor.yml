@@ -2,6 +2,9 @@
   version: 1.0.{build}
   platform: Any CPU
   configuration: Release
+  branches:
+    only:
+      - release
   build:
     publish_nuget: true
   before_build:
