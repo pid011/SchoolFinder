@@ -27,7 +27,10 @@ namespace SchoolFinder
 
             foreach (var item in infos)
             {
-                item.Code = codes.Find(x => x.Name == item.Name).Code;
+                if (codes.Exists(x => x.Name == item.Name))
+                {
+                    item.Code = codes.Find(x => x.Name == item.Name).Code;
+                }
             }
             infos.RemoveAll(x => x.Code == null);
 

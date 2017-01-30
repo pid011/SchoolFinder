@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 
 namespace SchoolFinder
@@ -12,7 +10,7 @@ namespace SchoolFinder
     {
         // [ NOTICE ] apiKey는 SchoolFinder만의 API 키입니다. 부디 다른 용도로 사용하지 말아주세요. ㅠㅠ
         const string defaultUrl = "http://www.career.go.kr/cnet/openapi/getOpenApi?apiKey=c64eb70b0ff5578f6f20f9af89e1bb52&svcType=api&svcCode=SCHOOL&contentType=json";
-        
+
         public List<SchoolInfo> SearchSchoolInfo(SchoolTypes type, Regions region, string searchWord)
         {
             var url = defaultUrl;
@@ -20,7 +18,7 @@ namespace SchoolFinder
             url += "&region=" + RegionsToString(region);
             url += "&searchSchulNm=" + searchWord;
 
-            var json = Util.GetJsonFromUrl(url);
+            var json = Util.GetTextFromUrl(url);
             var result = SchoolJsonParser(json);
 
             result.ForEach(x => { x.Region = region; x.SchoolType = type; });

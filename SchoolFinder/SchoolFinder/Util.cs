@@ -11,7 +11,7 @@ namespace SchoolFinder
     [Serializable]
     internal class Util
     {
-        public static string GetJsonFromUrl(string url)
+        public static string GetTextFromUrl(string url)
         {
             string result = null;
 
