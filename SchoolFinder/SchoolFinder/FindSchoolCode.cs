@@ -17,7 +17,7 @@ namespace SchoolFinder
         public List<SchoolCodeInfo> SearchSchoolCode(Regions region, string searchWord)
         {
             string url = RegionsToUrl(region) + searchWord;
-            string json = Util.GetJsonFromUrl(url);
+            string json = Util.GetTextFromUrl(url);
             var result = SchoolCodeJsonParser(json);
 
             return result;
